@@ -34,20 +34,17 @@ class MarkdownTokenizer:
 
         while pos < text_len:
             match, pattern_info = self.find_match(markdown_text, pos)
-            if match:
-                if found_text:
-                    parent_node.add_child(TextNode(found_text.strip()))
-                    found_text = ""
-
-                if match.group() == "\n":
-                    parent_node.add_child(Node("node-new_line"))
-                    pos += 1
-                else:
-                    self.handle_match(match, pattern_info, parent_node)
-                    pos += match.end()
-            else:
+            if not match:
                 found_text += markdown_text[pos]
                 pos += 1
+                continue
+
+            self.handle_match(match, pattern_info, parent_node)
+            pos += match.end()
+            
+            if found_text:
+                parent_node.add_child(TextNode(found_text.strip()))
+                found_text = ""
 
         if found_text:
             parent_node.add_child(TextNode(found_text.strip()))
@@ -62,7 +59,8 @@ class MarkdownTokenizer:
     def handle_match(self, match, pattern_info, parent_node):
         n = Node(node_type=f"node-{pattern_info['identifier']}", children=[])
         parent_node.add_child(n)
-        self.tokenize(match.group(2) if len(match.groups()) > 1 else match.group(0), n)
+        if pattern_info['identifier'] != "new_line":
+            self.tokenize(match.group(2) if len(match.groups()) > 1 else match.group(0), n)
 
     def prettify_ast(self, children, level=0):
         for node in children:
