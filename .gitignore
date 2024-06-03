@@ -1,0 +1,4 @@
+node_modules
+lint/
+out/
+coverage/

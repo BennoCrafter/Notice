@@ -1,0 +1,26 @@
+{
+  "name": "notice",
+  "version": "1.0.0",
+  "description": "Write and organize your notes in a simple and lightweight way but with usefull functions like markdown support and much more.",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BennoCrafter/Notice.git"
+  },
+  "keywords": [
+    "note",
+    "markdown"
+  ],
+  "author": "BennoCrafter, InfinityCoding",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BennoCrafter/Notice/issues"
+  },
+  "homepage": "https://github.com/BennoCrafter/Notice#readme",
+  "devDependencies": {
+    "electron": "^30.0.9"
+  }
+}
