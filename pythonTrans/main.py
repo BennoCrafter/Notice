@@ -14,12 +14,17 @@ patterns = [
 ]
 
 class MarkdownTokenizer:
-    def __init__(self, text):
+    def __init__(self, text=None, read_from_file=False):
         self.text = text
         self.ast = Node(node_type="root", children=[])
+        if read_from_file:
+            self.text = self.read_markdown_file(read_from_file)
+
         self.tokenize(self.text, self.ast)
+
         self.prettify_ast(self.ast.get_children())
-        print(len(self.ast.get_children()))
+
+        print("Ast children: ", len(self.ast.get_children()))
         self.save_to_file(self.ast, "example.json")
 
     def tokenize(self, markdown_text, parent_node):
@@ -71,13 +76,10 @@ class MarkdownTokenizer:
         with open(filename, 'w') as f:
             json.dump(ast.to_dict(), f, indent=4)
 
-# Example usage
-sec = """
-# Header first
-something else **other** wow
-## other header
-- nice **very** cool
-[this](http://example.com)
-"""
+    def read_markdown_file(self, filename):
+        with open(filename, 'r') as file:
+            return file.read(1024)
 
-MarkdownTokenizer(sec)
+if __name__ == "__main__":
+    MarkdownTokenizer(read_from_file="example.md")
+

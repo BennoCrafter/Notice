@@ -3,11 +3,6 @@
     "content": null,
     "children": [
         {
-            "type": "node-new_line",
-            "content": null,
-            "children": []
-        },
-        {
             "type": "node-header",
             "content": null,
             "children": [
@@ -98,11 +93,6 @@
                     "content": "http://example.com"
                 }
             ]
-        },
-        {
-            "type": "node-new_line",
-            "content": null,
-            "children": []
         }
     ]
 }
