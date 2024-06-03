@@ -1,5 +1,5 @@
 class Node:
-    def __init__(self, node_type, children=[], content=None):
+    def __init__(self, node_type, children=[]):
         self.children = children
         self.type = node_type
 
@@ -16,7 +16,6 @@ class Node:
     def to_dict(self):
         return {
             'type': self.type,
-            'content': self.content,
             'children': [children.to_dict() if isinstance(children, Node) else {'type': 'TextNode', 'content': children.get_content()} for children in self.children]
         }
     
