@@ -2,7 +2,6 @@ class Node:
     def __init__(self, node_type, children=[], content=None):
         self.children = children
         self.type = node_type
-        self.content = content
 
     def add_child(self, node):
         self.children.append(node)
