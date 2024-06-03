@@ -1,0 +1,108 @@
+{
+    "type": "root",
+    "content": null,
+    "children": [
+        {
+            "type": "node-new_line",
+            "content": null,
+            "children": []
+        },
+        {
+            "type": "node-header",
+            "content": null,
+            "children": [
+                {
+                    "type": "TextNode",
+                    "content": "Header first"
+                }
+            ]
+        },
+        {
+            "type": "node-new_line",
+            "content": null,
+            "children": []
+        },
+        {
+            "type": "TextNode",
+            "content": "something else"
+        },
+        {
+            "type": "node-bold",
+            "content": null,
+            "children": [
+                {
+                    "type": "TextNode",
+                    "content": "other"
+                }
+            ]
+        },
+        {
+            "type": "TextNode",
+            "content": "wow"
+        },
+        {
+            "type": "node-new_line",
+            "content": null,
+            "children": []
+        },
+        {
+            "type": "node-header",
+            "content": null,
+            "children": [
+                {
+                    "type": "TextNode",
+                    "content": "other header"
+                }
+            ]
+        },
+        {
+            "type": "node-new_line",
+            "content": null,
+            "children": []
+        },
+        {
+            "type": "node-list",
+            "content": null,
+            "children": [
+                {
+                    "type": "TextNode",
+                    "content": "nice"
+                },
+                {
+                    "type": "node-bold",
+                    "content": null,
+                    "children": [
+                        {
+                            "type": "TextNode",
+                            "content": "very"
+                        }
+                    ]
+                },
+                {
+                    "type": "TextNode",
+                    "content": "cool"
+                }
+            ]
+        },
+        {
+            "type": "node-new_line",
+            "content": null,
+            "children": []
+        },
+        {
+            "type": "node-link",
+            "content": null,
+            "children": [
+                {
+                    "type": "TextNode",
+                    "content": "http://example.com"
+                }
+            ]
+        },
+        {
+            "type": "node-new_line",
+            "content": null,
+            "children": []
+        }
+    ]
+}
