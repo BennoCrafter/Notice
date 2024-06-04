@@ -38,16 +38,16 @@ class MarkdownTokenizer:
                 found_text += markdown_text[pos]
                 pos += 1
                 continue
+            
+            if found_text:
+                parent_node.add_child(TextNode(found_text))
+                found_text = ""
 
             self.handle_match(match, pattern_info, parent_node)
             pos += match.end()
-            
-            if found_text:
-                parent_node.add_child(TextNode(found_text.strip()))
-                found_text = ""
 
         if found_text:
-            parent_node.add_child(TextNode(found_text.strip()))
+            parent_node.add_child(TextNode(found_text))
 
     def find_match(self, text, pos):
         for pattern_info in patterns:

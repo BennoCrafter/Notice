@@ -15,6 +15,10 @@
             "children": []
         },
         {
+            "type": "TextNode",
+            "content": "something else "
+        },
+        {
             "type": "node-bold",
             "children": [
                 {
@@ -25,15 +29,11 @@
         },
         {
             "type": "TextNode",
-            "content": "something else"
+            "content": " wow"
         },
         {
             "type": "node-new_line",
             "children": []
-        },
-        {
-            "type": "TextNode",
-            "content": "wow"
         },
         {
             "type": "node-header",
@@ -52,6 +52,10 @@
             "type": "node-list",
             "children": [
                 {
+                    "type": "TextNode",
+                    "content": "nice "
+                },
+                {
                     "type": "node-bold",
                     "children": [
                         {
@@ -62,11 +66,7 @@
                 },
                 {
                     "type": "TextNode",
-                    "content": "nice"
-                },
-                {
-                    "type": "TextNode",
-                    "content": "cool"
+                    "content": " cool"
                 }
             ]
         },

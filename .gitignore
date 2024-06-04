@@ -2,3 +2,5 @@ node_modules
 lint/
 out/
 coverage/
+.DS_STORE
+.DS_Store
