@@ -50,42 +50,6 @@ impl Styling for EditorStyling {
         0
     }
 
-    fn font_size(&self, edid: EditorId, line: usize) -> usize {
-        self.style.font_size(edid, line)
-    }
-
-    fn line_height(&self, edid: EditorId, line: usize) -> f32 {
-        self.style.line_height(edid, line)
-    }
-
-    fn font_family(&self, edid: EditorId, line: usize) -> Cow<[FamilyOwned]> {
-        self.style.font_family(edid, line)
-    }
-
-    fn weight(&self, edid: EditorId, line: usize) -> Weight {
-        self.style.weight(edid, line)
-    }
-
-    fn italic_style(&self, edid: EditorId, line: usize) -> Style {
-        self.style.italic_style(edid, line)
-    }
-
-    fn stretch(&self, edid: EditorId, line: usize) -> Stretch {
-        self.style.stretch(edid, line)
-    }
-
-    fn indent_line(&self, edid: EditorId, line: usize, line_content: &str) -> usize {
-        self.style.indent_line(edid, line, line_content)
-    }
-
-    fn tab_width(&self, edid: EditorId, line: usize) -> usize {
-        self.style.tab_width(edid, line)
-    }
-
-    fn atomic_soft_tabs(&self, edid: EditorId, line: usize) -> bool {
-        self.style.atomic_soft_tabs(edid, line)
-    }
-
     fn apply_attr_styles(
         &self,
         _edid: EditorId,
