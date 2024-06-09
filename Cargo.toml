@@ -1,0 +1,12 @@
+[package]
+name = "notice"
+version = "0.1.0"
+edition = "2021"
+description = "toll"
+[dependencies]
+floem = { git = "https://github.com/lapce/floem", branch = "main" }
+
+[package.metadata.bundle]
+description = "toll"
+name = "Notice"
+identifier = "id.notice"
