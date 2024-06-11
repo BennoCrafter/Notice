@@ -59,7 +59,6 @@ impl Styling for EditorStyling {
         attrs: &mut AttrsList,
     ) {
         attrs.clear_spans();
-
         // todo this can be improved
         if line == 0 {
             let mut attr = Attrs::new().color(Color::WHITE);
@@ -102,12 +101,9 @@ fn app_view() -> impl IntoView {
 
     let file_content =  "Big text! Now normal text!\nNothing special in this line\nBut now bold! normal again
     ";
-    let mut editor = text_editor(
-        file_content
-    );
+    let mut editor = text_editor(file_content);
 
     let hide_gutter = RwSignal::new(false);
-
     editor = editor
         .styling(style)
         .editor_style(default_dark_color)
@@ -115,10 +111,13 @@ fn app_view() -> impl IntoView {
         .style(|s| s.size_full().padding(20.0));
 
     let doc = editor.doc();
-
-    // Signal to hold the document content
-    let doc_content = RwSignal::new(String::new());
-
+    {
+    let doc_copy = doc.clone();
+    editor = editor.update(move |_| {
+        println!("Update: {}", doc_copy.text());
+    });
+    }   
+    
     let view = stack((
         editor,
         stack((
