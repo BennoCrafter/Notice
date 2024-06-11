@@ -111,13 +111,13 @@ fn app_view() -> impl IntoView {
         .style(|s| s.size_full().padding(20.0));
 
     let doc = editor.doc();
-
-    {
-        let doc_copy = doc.clone();
-        editor = editor.update(move |_| {
-            println!("Update: {}", doc_copy.text());
-        });
-    }   
+    editor = editor.update(move |update| {
+        if let Some(editor) = &update.editor {
+            println!("Update: {}", editor.doc().text());
+        } else {
+            println!("No editor available to provide an update.");
+        }
+            });
     
     let view = stack((
         editor,
