@@ -111,11 +111,12 @@ fn app_view() -> impl IntoView {
         .style(|s| s.size_full().padding(20.0));
 
     let doc = editor.doc();
+
     {
-    let doc_copy = doc.clone();
-    editor = editor.update(move |_| {
-        println!("Update: {}", doc_copy.text());
-    });
+        let doc_copy = doc.clone();
+        editor = editor.update(move |_| {
+            println!("Update: {}", doc_copy.text());
+        });
     }   
     
     let view = stack((
