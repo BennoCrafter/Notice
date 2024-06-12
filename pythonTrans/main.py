@@ -41,14 +41,13 @@ class MarkdownTokenizer:
                 continue
             
             if found_text:
-                parent_node.add_child(TextNode(found_text))
+                parent_node.add_child(TextNode(content=found_text, span=(0, len(found_text))))
                 found_text = ""
-
             self.handle_match(match, pattern_info, parent_node)
             pos += match.end()
 
         if found_text:
-            parent_node.add_child(TextNode(found_text))
+            parent_node.add_child(TextNode(found_text, span=(0, len(found_text))))
 
     def find_match(self, text, pos):
         for pattern_info in patterns:
@@ -58,7 +57,7 @@ class MarkdownTokenizer:
         return None, None
 
     def handle_match(self, match, pattern_info, parent_node):
-        n = Node(node_type=f"node-{pattern_info['identifier']}", children=[])
+        n = Node(node_type=f"node-{pattern_info['identifier']}", children=[], span=match.span())
         parent_node.add_child(n)
         if pattern_info['identifier'] not in ["empty_line", "new_line"]:
             self.tokenize(match.group(2) if len(match.groups()) > 1 else match.group(0), n)
@@ -66,9 +65,9 @@ class MarkdownTokenizer:
     def prettify_ast(self, children, level=0):
         for node in children:
             if isinstance(node, TextNode):
-                print(" " * level * 2 + "TextNode:", node.get_content())
+                print(" " * level * 2 + "TextNode:", node.get_content(), node.span)
             else:
-                print(" " * level * 2 + f"Node ({node.type}):")
+                print(" " * level * 2 + f"Node ({node.type}):", node.span)
                 self.prettify_ast(node.get_children(), level + 1)
 
     def save_to_file(self, ast, filename):
