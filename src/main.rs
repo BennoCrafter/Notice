@@ -117,7 +117,7 @@ fn app_view() -> impl IntoView {
         } else {
             println!("No editor available to provide an update.");
         }
-            });
+    });
     
     let view = stack((
         editor,
