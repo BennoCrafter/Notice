@@ -10,7 +10,8 @@ patterns = [
     {"pattern": re.compile(r'(\*\*(.*?)\*\*)', re.MULTILINE), "identifier": "bold"},
     {"pattern": re.compile(r'\*(.*?)\*', re.MULTILINE), "identifier": "italic"},
     {"pattern": re.compile(r'\[(.*?)\]\((.*?)\)', re.MULTILINE), "identifier": "link"},
-    {"pattern": re.compile(r'\n'), "identifier": "new_line"},
+    {"pattern": re.compile(r'\n\n'), "identifier": "empty_line"},
+    {"pattern": re.compile(r'\n'), "identifier": "new_line"}
 ]
 
 class MarkdownTokenizer:
@@ -59,7 +60,7 @@ class MarkdownTokenizer:
     def handle_match(self, match, pattern_info, parent_node):
         n = Node(node_type=f"node-{pattern_info['identifier']}", children=[])
         parent_node.add_child(n)
-        if pattern_info['identifier'] != "new_line":
+        if pattern_info['identifier'] not in ["empty_line", "new_line"]:
             self.tokenize(match.group(2) if len(match.groups()) > 1 else match.group(0), n)
 
     def prettify_ast(self, children, level=0):
