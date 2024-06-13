@@ -5,6 +5,7 @@ edition = "2021"
 description = "toll"
 [dependencies]
 floem = { git = "https://github.com/lapce/floem", branch = "main" }
+lazy_static = "1.4.0"
 
 [package.metadata.bundle]
 description = "toll"
