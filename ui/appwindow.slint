@@ -1,0 +1,12 @@
+import { TextEdit } from "std-widgets.slint";
+export component AppWindow inherits Window {
+    width: 200px;
+    height: 200px;
+    TextEdit {
+        font-size: 14px;
+        width: parent.width;
+        height: parent.height;
+        text: "Hello \nWorld! Really text!";
+        has-focus: false;
+    }
+}

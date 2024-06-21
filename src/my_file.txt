@@ -1,3 +1,0 @@
-Big text! Now normal text!
-Nothing special in this line
-But now bold! normal again

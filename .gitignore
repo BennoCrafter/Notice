@@ -1,8 +1,4 @@
-node_modules
-lint/
-out/
-coverage/
-.DS_STORE
-.DS_Store
 target/
-__pycache__/
+Cargo.lock
+slint/target
+pythonTrans/__pycache__

@@ -1,13 +1,10 @@
 [package]
-name = "notice"
+name = "Notice2"
 version = "0.1.0"
 edition = "2021"
-description = "toll"
-[dependencies]
-floem = { git = "https://github.com/lapce/floem", branch = "main" }
-lazy_static = "1.4.0"
 
-[package.metadata.bundle]
-description = "toll"
-name = "Notice"
-identifier = "id.notice"
+[dependencies]
+slint = { path = "slint/api/rs/slint" }
+
+[build-dependencies]
+slint-build = { path = "slint/api/rs/build" }
